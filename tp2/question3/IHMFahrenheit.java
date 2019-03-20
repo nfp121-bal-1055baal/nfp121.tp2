@@ -9,7 +9,7 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
   private JTextField entree = new JTextField( 6 );
   /** Le bouton de conversion. */
   private JButton  boutonDeConversion = new JButton( "convertir" );
-  /** La sortie en degré Celsius. */
+  /** La sortie en degrÃ© Celsius. */
   private JTextField sortie = new JTextField( 6 );
 
   public IHMFahrenheit(){
@@ -26,13 +26,13 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
   }
 
   /** 
-   * méthode déclenchée lorsque le bouton de conversion est appuyé. 
-   * remarquer que le champs de droite (les degrés Celsius) n'est pas éditable.
-   * @param ae l'événement transmis
+   * mÃ©thode dÃ©clenchÃ©e lorsque le bouton de conversion est appuyÃ©. 
+   * remarquer que le champs de droite (les degrÃ©s Celsius) n'est pas Ã©ditable.
+   * @param ae l'Ã©vÃ©nement transmis
    */
   public void actionPerformed( ActionEvent ae ){
     try{
-      int fahrenheit = 0; // valeur est une String et doit être convertie en entier, voir java.lang.Integer méthode parseInt (--> try/catch)
+      int fahrenheit = 0; // valeur est une String et doit Ãªtre convertie en entier, voir java.lang.Integer mÃ©thode parseInt (--> try/catch)
       
       try{
           fahrenheit = Integer.parseInt(entree.getText().toString());
@@ -40,9 +40,10 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
           System.out.println("error : " + nfe.getMessage());  // en cas d'erreur 
       }
       
-      float celsius = ((int)(question1.FahrenheitCelsius.fahrenheitEnCelsius(fahrenheit)*10))/10.0F; // à compléter, en appelant la méthode ad'hoc de la question2 
-      // un test ici pour le zéro absolu (-273.1)
-
+      float celsius = ((int)(question1.FahrenheitCelsius.fahrenheitEnCelsius(fahrenheit)*10))/10.0F; // Ã  complÃ©ter, en appelant la mÃ©thode ad'hoc de la question2 
+      // un test ici pour le zÃ©ro absolu (-273.1)
+      if(celsius<-273.1F)
+        celsius=-273.1F
       sortie.setText( Float.toString( celsius));
     }catch(NumberFormatException nfe){
       sortie.setText("error ! ");
